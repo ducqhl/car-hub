@@ -2,7 +2,7 @@
 
 import { SearchManufacturer } from "@/components";
 import Image from "next/image";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import { useState } from "react";
 
 const SearchButton = ({ otherClasses }: { otherClasses: string }) => (
@@ -18,7 +18,7 @@ const SearchButton = ({ otherClasses }: { otherClasses: string }) => (
 );
 
 const SearchBar = () => {
-  const searchParams = new URLSearchParams(window.location.search);
+  const searchParams = useSearchParams();
   const [manufacturer, setManufacturer] = useState(
     searchParams?.get("manufacturer") || ""
   );
